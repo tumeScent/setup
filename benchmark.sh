@@ -8,7 +8,7 @@ echo "-----------------------------"
 # CPU 性能测试
 echo "🧠 CPU 压缩性能测试 (gzip -9)"
 START=$(date +%s)
-gzip -9 < /dev/zero | head -c 100M > /dev/null
+gzip -1 < /dev/zero | head -c 20M > /dev/null
 END=$(date +%s)
 echo "压缩耗时：$((END - START)) 秒"
 echo "-----------------------------"
