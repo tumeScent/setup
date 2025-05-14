@@ -98,7 +98,7 @@ fi
 # 安装 Yazi 二进制
 if [ ! -f "/usr/local/bin/yazi" ]; then
 	    echo "📂 安装 Yazi 到 /usr/local/bin..."
-	        sudo cp target/release/yazi /usr/local/bin/
+	        sudo mv target/release/yazi /usr/local/bin/
 	else
 		    echo "✅ Yazi 已安装到 /usr/local/bin"
 fi
