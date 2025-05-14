@@ -2,12 +2,31 @@
 
 set -e
 
-echo "🔍 检查并安装基础依赖..."
 sudo apt update
-sudo apt install -y \
-	    htop tmux vim git curl wget unzip \
-	        cmake build-essential \
-		    neofetch
+
+# 定义你要安装的包列表
+packages=(
+    htop
+    tmux
+    vim
+    git
+    curl
+    wget
+    unzip
+    cmake
+    build-essential
+    neofetch
+)
+
+# 遍历列表，判断是否已安装
+for pkg in "${packages[@]}"; do
+    if dpkg -s "$pkg" >/dev/null 2>&1; then
+        echo "[✔] $pkg 已安装，跳过"
+    else
+        echo "[➤] 安装 $pkg ..."
+        sudo apt install -y "$pkg"
+    fi
+done
 
 # 安装 Python3 和 pip3（如果未安装）
 if ! command -v python3 >/dev/null 2>&1; then
