@@ -59,7 +59,7 @@ source venv/bin/activate
 
 # 安装 requirements.txt 中的依赖
 if [ -f "requirements.txt" ]; then
-a	    echo "📦 安装 Python 依赖..."
+	    	echo "📦 安装 Python 依赖..."
 	        pip3 install -r requirements.txt
 	else
 		    echo "⚠️ 未发现 requirements.txt，跳过 Python 依赖安装"
