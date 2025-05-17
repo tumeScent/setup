@@ -28,6 +28,35 @@ for pkg in "${packages[@]}"; do
     fi
 done
 
+# 安装neovim
+if [ command -v >/dev/null 2>&1; then
+	echo "neovim已安装，跳过"
+else
+	# 下载最新的 AppImage
+	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+	
+	# 添加执行权限
+	chmod u+x nvim-linux-x86_64.appimage  
+
+	# 移动到全局可用目录（或自己 bin 目录）
+	sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+fi
+
+# 安装lazyvim
+if [ -d "$HOME/.config/nvim" ] && [ -f "$HOME/.config/nvim/lazy-lock.json" ]; then
+    echo "[✔] LazyVim 已安装，跳过"
+else
+    echo "[➤] 安装 LazyVim ..."
+    if [ -d "$HOME/.config/nvim" ]; then
+	    mv $HOME/.config/nvim $HOME/.config/nvim.bak
+	    mv $HOME/.local/share/nvim $HOME/.local/share/nvim.bak
+	    echo "[i] 旧的 nvim 配置已备份"
+    fi
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    rm -rf ~/.config/nvim/.git
+    echo "[✔] LazyVim 克隆完成"
+fi
+
 # 安装 Python3 和 pip3（如果未安装）
 if ! command -v python3 >/dev/null 2>&1; then
 	    echo "📦 安装 Python3..."
@@ -68,6 +97,10 @@ fi
 echo ""
 echo "🚀 开始安装 Yazi 文件管理器..."
 
+if command -v yazi >/dev/null 2>&1; then
+    echo "[✔] Yazi 已安装，跳过"
+else
+
 # 安装 Yazi 依赖
 sudo apt install -y libxcb1-dev libxkbcommon-dev pkg-config libglib2.0-dev libgtk-3-dev
 
@@ -103,6 +136,8 @@ if [ ! -f "/usr/local/bin/yazi" ]; then
 		    echo "✅ Yazi 已安装到 /usr/local/bin"
 fi
 
+fi
+
 echo ""
-echo "✅ 所有安装完成，你现在可以运行 yazi 或激活 Python 环境！"
+echo "✅ 所有安装完成！"
 
