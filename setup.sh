@@ -108,6 +108,7 @@ else
   if ! command -v cargo >/dev/null 2>&1; then
     echo "📦 安装 Rust 工具链..."
     curl https://sh.rustup.rs -sSf | sh -s -- -y
+    rustup update
     source "$HOME/.cargo/env"
   else
     echo "✅ Rust 已安装: $(cargo --version)"
@@ -118,7 +119,6 @@ else
     echo "📥 克隆 Yazi 仓库..."
     git clone https://github.com/sxyazi/yazi.git
   fi
-
   cd yazi
 
   if [ ! -f "target/release/yazi" ]; then
@@ -136,6 +136,25 @@ else
     echo "✅ Yazi 已安装到 /usr/local/bin"
   fi
 
+  cargo install yazi-cli
+
+  echo "安装yazi插件..."
+  ya pkg install
+  echo "yazi插件安装完成"
+
+fi
+
+if [ commmand -v glow ]; then
+  echo "glow已安装，跳过"
+else
+  echo ""
+  echo "从官方仓库安装glow..."
+  # Debian/Ubuntu
+  sudo mkdir -p /etc/apt/keyrings
+  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+  sudo apt update && sudo apt install glow
+  echo "glow安装完成"
 fi
 
 echo ""
