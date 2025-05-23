@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "AnirudhG07/custom-shell"
+rev = "6b4550a"
+hash = "43019cca17a4d7b41746c2e0a6b8f33f"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "2da96e3"
+hash = "f9ee1436e3b853508d87f7d49dce56e6"
+
+[[flavor.deps]]
+use = "AdithyanA2005/nord"
+rev = "37ad6d4"
+hash = "11c216ce8ea93c3d9fd7c7e432e369eb"

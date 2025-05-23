@@ -1,0 +1,17 @@
+[[manager.prepend_keymap]]
+on = [ ":" ]
+run = "plugin custom-shell -- bash --wait"
+desc = "custom-shell as default, waits for user"
+
+[[manager.prepend_keymap]]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+# If you also using Yazi on Windows:
+[[manager.prepend_keymap]]
+on   = "!"
+for  = "windows"
+run  = 'shell "powershell.exe" --block'
+desc = "Open PowerShell here"

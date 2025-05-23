@@ -16,6 +16,7 @@ packages=(
   cmake
   build-essential
   neofetch
+  fzf
 )
 
 # 遍历列表，判断是否已安装
@@ -29,7 +30,7 @@ for pkg in "${packages[@]}"; do
 done
 
 # 安装neovim
-if [ command -v >/dev/null 2>&1; then
+if command -v nvim >/dev/null 2>&1; then
   echo "neovim已安装，跳过"
 else
   # 下载最新的 AppImage
@@ -77,22 +78,6 @@ if ! python3 -m virtualenv --version >/dev/null 2>&1; then
   echo "📦 安装 virtualenv..."
   pip3 install virtualenv
 fi
-
-# if [ ! -d "venv" ]; then
-# 	    echo "🐍 创建 Python 虚拟环境 venv..."
-# 	        python3 -m virtualenv venv
-# fi
-#
-# echo "🔄 启动 Python 虚拟环境..."
-# source venv/bin/activate
-#
-# # 安装 requirements.txt 中的依赖
-# if [ -f "requirements.txt" ]; then
-# 	    	echo "📦 安装 Python 依赖..."
-# 	        pip3 install -r requirements.txt
-# 	else
-# 		    echo "⚠️ 未发现 requirements.txt，跳过 Python 依赖安装"
-# fi
 
 echo ""
 echo "🚀 开始安装 Yazi 文件管理器..."
@@ -144,7 +129,7 @@ else
 
 fi
 
-if [ commmand -v glow ]; then
+if command -v glow >/dev/null 2>&1; then
   echo "glow已安装，跳过"
 else
   echo ""
@@ -156,17 +141,22 @@ else
   sudo apt update && sudo apt install glow
   echo "glow安装完成"
 fi
-
 echo ""
 echo "正在复制配置文件..."
 
-# 定义 dotfiles 目录（使用绝对路径更可靠）
+# dotfiles 目录
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/dotfiles" && pwd)"
 
-# 配置文件列表
+# 配置文件或目录列表（不包括整个 .config）
 FILES=(
   ".tmux.conf"
   ".bash_aliases"
+)
+
+# .config 下的子目录
+CONFIG_DIRS=(
+  "nvim"
+  "yazi"
 )
 
 # 检查 dotfiles 目录是否存在
@@ -175,55 +165,104 @@ if [ ! -d "$DOTFILES_DIR" ]; then
   exit 1
 fi
 
+# 处理普通 dotfiles
 for file in "${FILES[@]}"; do
   SOURCE="$DOTFILES_DIR/$file"
   TARGET="$HOME/$file"
 
-  # 检查源文件是否存在
-  if [ ! -e "$SOURCE" ]; then
-    echo "⚠️ 警告：源文件 $file 不存在，跳过"
-    continue
-  fi
-
-  # 如果目标已存在
   if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
-    # 如果是符号链接，显示指向位置
-    if [ -L "$TARGET" ]; then
-      echo "🗑 删除旧的符号链接 $file → $(readlink "$TARGET")"
-    else
-      echo "🗑 删除旧的 $file"
-    fi
+    echo "🗑 删除旧的 $file"
     rm -rf "$TARGET"
   fi
 
-  # 创建新的软链接
   echo "🔗 链接 $file → $SOURCE"
   ln -s "$SOURCE" "$TARGET"
 done
 
+# 处理 .config 子目录
+for config in "${CONFIG_DIRS[@]}"; do
+  SOURCE="$DOTFILES_DIR/.config/$config"
+  TARGET="$HOME/.config/$config"
+
+  if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
+    echo "🗑 删除旧的 .config/$config"
+    rm -rf "$TARGET"
+  fi
+
+  echo "🔗 链接 .config/$config → $SOURCE"
+  ln -s "$SOURCE" "$TARGET"
+done
+
 echo "✅ 配置文件设置完成"
-# echo ""
-# echo "✅ 所有安装完成！"
-#
+
 # echo ""
 # echo "正在复制配置文件..."
-# # 定义 dotfiles 目录（根据你实际放的位置修改）
-# DOTFILES_DIR="./dotfiles"
+#
+# # 定义 dotfiles 目录（使用绝对路径更可靠）
+# DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/dotfiles" && pwd)"
 #
 # # 配置文件列表
 # FILES=(
 #   ".tmux.conf"
 #   ".bash_aliases"
+#   ".config"
 # )
 #
+# # 检查 dotfiles 目录是否存在
+# if [ ! -d "$DOTFILES_DIR" ]; then
+#   echo "❌ 错误：dotfiles 目录不存在: $DOTFILES_DIR"
+#   exit 1
+# fi
+#
 # for file in "${FILES[@]}"; do
-#   # 如果已经存在（无论是普通文件、旧链接、目录）
-#   if [ -e "$HOME/$file" ] || [ -L "$HOME/$file" ]; then
-#     echo "🗑 删除旧的 $file"
-#     rm -rf "$HOME/$file"
+#   SOURCE="$DOTFILES_DIR/$file"
+#   TARGET="$HOME/$file"
+#
+#   # 检查源文件是否存在
+#   if [ ! -e "$SOURCE" ]; then
+#     echo "⚠️ 警告：源文件 $file 不存在，跳过"
+#     continue
+#   fi
+#
+#   # 如果目标已存在
+#   if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
+#     # 如果是符号链接，显示指向位置
+#     if [ -L "$TARGET" ]; then
+#       echo "🗑 删除旧的符号链接 $file → $(readlink "$TARGET")"
+#     else
+#       echo "🗑 删除旧的 $file"
+#     fi
+#     rm -rf "$TARGET"
 #   fi
 #
 #   # 创建新的软链接
-#   echo "🔗 链接 $file 到 $DOTFILES_DIR/$file"
-#   ln -s "$DOTFILES_DIR/$file" "$HOME/$file"
+#   echo "🔗 链接 $file → $SOURCE"
+#   ln -s "$SOURCE" "$TARGET"
 # done
+#
+# echo "✅ 配置文件设置完成"
+# # echo ""
+# # echo "✅ 所有安装完成！"
+# #
+# # echo ""
+# # echo "正在复制配置文件..."
+# # # 定义 dotfiles 目录（根据你实际放的位置修改）
+# # DOTFILES_DIR="./dotfiles"
+# #
+# # # 配置文件列表
+# # FILES=(
+# #   ".tmux.conf"
+# #   ".bash_aliases"
+# # )
+# #
+# # for file in "${FILES[@]}"; do
+# #   # 如果已经存在（无论是普通文件、旧链接、目录）
+# #   if [ -e "$HOME/$file" ] || [ -L "$HOME/$file" ]; then
+# #     echo "🗑 删除旧的 $file"
+# #     rm -rf "$HOME/$file"
+# #   fi
+# #
+# #   # 创建新的软链接
+# #   echo "🔗 链接 $file 到 $DOTFILES_DIR/$file"
+# #   ln -s "$DOTFILES_DIR/$file" "$HOME/$file"
+# # done
