@@ -1,3 +1,4 @@
 bash -ic 'nice;read'
 bash -ic 'ls -a;read'
 bash -ic 'tmux;read'
+bash -ic 'ga .;read'
