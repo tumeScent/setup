@@ -1,0 +1,7 @@
+# requirements for jupyter notebook
+
+jupyterlab
+jupyter-client 
+ipykernel
+jupyter
+notebook
