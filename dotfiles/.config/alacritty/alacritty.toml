@@ -1,0 +1,27 @@
+[general]
+# 导入主题
+# import = [ "/home/tumeScent/.config/alacritty/themes/themes/carbonfox.toml" ]
+
+ # import = [ "/home/tumeScent/.config/alacritty/themes/themes/catppuccin_mocha.toml" ]
+
+[font]
+size = 16.0
+normal = { family = "FiraCode Nerd Font", style = "Bold" }
+
+bold = { family = "FiraCode Nerd Font", style = "Bold" }
+
+italic = { family = "FiraCode Nerd Font", style = "Bold" }
+
+[window]
+dimensions = { columns = 107, lines = 32 }
+decorations = "none"
+opacity = 0.90
+blur = true
+padding = { x = 17, y = 17}
+
+# 快捷键绑定
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
+
