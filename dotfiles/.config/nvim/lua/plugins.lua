@@ -51,14 +51,17 @@ return require("packer").startup(function(use)
     -- treesitter highlights
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-
-        config = function()
-            require("plugin.treesitter")
-        end
+        lazy = false,
+        build = ':TSUpdate'
+        -- 'nvim-treesitter/nvim-treesitter',
+        -- run = function()
+        --     local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        --     ts_update()
+        -- end,
+        --
+        -- config = function()
+        --     require("plugin.treesitter")
+        -- end
     }
 
     -- colorscheme

@@ -10,11 +10,11 @@ require("mason-lspconfig").setup({
 })
 
 -- 3. 自动配置 LSP (推荐写法)
-require("mason-lspconfig").setup {
-}
- local lspconfig = require("lspconfig")
- lspconfig.pyright.setup({})
- lspconfig.clangd.setup({})
+-- require("mason-lspconfig").setup {
+-- }
+--  local lspconfig = require("lspconfig")
+--  lspconfig.pyright.setup({})
+--  lspconfig.clangd.setup({})
 
 -- 4. 安装 black/flake8/clang-format 等工具
 require("mason-tool-installer").setup {
