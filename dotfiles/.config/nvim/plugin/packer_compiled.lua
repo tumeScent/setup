@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/tumeScent/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?.lua;/home/tumeScent/.cache/nvim/packer_hererocks/2.1.1753364724/share/lua/5.1/?/init.lua;/home/tumeScent/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?.lua;/home/tumeScent/.cache/nvim/packer_hererocks/2.1.1753364724/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/tumeScent/.cache/nvim/packer_hererocks/2.1.1753364724/lib/lua/5.1/?.so"
+local package_path_str = "/Users/shawn/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?.lua;/Users/shawn/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?/init.lua;/Users/shawn/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?.lua;/Users/shawn/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/shawn/.cache/nvim/packer_hererocks/2.1.1765228720/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,109 +74,130 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["bufferline.nvim"] = {
-    config = { "\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\15background\0\tfill\0\22separator_visible\0\btab\0\23separator_selected\0\14separator\0\17tab_selected\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0" },
+  ["CopilotChat.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/CopilotChat.nvim",
+    url = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+  },
+  ["bufferline.nvim"] = {
+    config = { "\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\22separator_visible\0\15background\0\17tab_selected\0\btab\0\tfill\0\23separator_selected\0\14separator\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0" },
+    loaded = true,
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
   fzf = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
+  },
+  ["img-clip.nvim"] = {
+    commands = { "PasteImage" },
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rimg_clip\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/opt/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason-tool-installer.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/mason-tool-installer.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/mason-tool-installer.nvim",
     url = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
   },
   ["mason.nvim"] = {
-    config = { "\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15plugin.lsp\frequire\0" },
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugin.treesitter\frequire\0" },
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
     config = { "\27LJ\2\nV\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tsize\3\n\14direction\nfloat\nsetup\15toggleterm\frequire\0" },
     loaded = true,
-    path = "/home/tumeScent/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\nV\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tsize\3\n\14direction\nfloat\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugin.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\15background\0\tfill\0\22separator_visible\0\btab\0\23separator_selected\0\14separator\0\17tab_selected\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
+try_loadstring("\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\22separator_visible\0\15background\0\17tab_selected\0\btab\0\tfill\0\23separator_selected\0\14separator\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
 time([[Config for bufferline.nvim]], false)
--- Config for: mason.nvim
-time([[Config for mason.nvim]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15plugin.lsp\frequire\0", "config", "mason.nvim")
-time([[Config for mason.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\nV\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tsize\3\n\14direction\nfloat\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'PasteImage', function(cmdargs)
+          require('packer.load')({'img-clip.nvim'}, { cmd = 'PasteImage', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'img-clip.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('PasteImage ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

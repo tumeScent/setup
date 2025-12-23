@@ -44,4 +44,5 @@ keymap('n', ']d', vim.diagnostic.goto_next, {})
 -- keymap('n', '<leader>ca', vim.lsp.buf.code_action, {})
 keymap('n', '<leader>rn', vim.lsp.buf.rename, {})
 
-
+-- img-clip
+keymap('n', '<leader>p', ':PasteImage<CR>', { noremap = true, silent = true, desc = 'Paste image from clipboard' })

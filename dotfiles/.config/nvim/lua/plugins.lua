@@ -51,17 +51,14 @@ return require("packer").startup(function(use)
     -- treesitter highlights
     use {
         'nvim-treesitter/nvim-treesitter',
-        lazy = false,
-        build = ':TSUpdate'
-        -- 'nvim-treesitter/nvim-treesitter',
-        -- run = function()
-        --     local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-        --     ts_update()
-        -- end,
-        --
-        -- config = function()
-        --     require("plugin.treesitter")
-        -- end
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+
+        config = function()
+            require("plugin.treesitter")
+        end
     }
 
     -- colorscheme
@@ -71,9 +68,9 @@ return require("packer").startup(function(use)
     use {
         "williamboman/mason.nvim",
         run = ":MasonUpdate",
-        config = function()
-            require("plugin.lsp")
-        end,
+        -- config = function()
+        --     require("plugin.lsp")
+        -- end,
     }
     use {
         "williamboman/mason-lspconfig.nvim",
@@ -92,6 +89,29 @@ return require("packer").startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use "nvim-lua/plenary.nvim"
+
+    use {
+        "HakonHarnes/img-clip.nvim",
+        cmd = "PasteImage",
+        config = function()
+            require("img_clip").setup({})
+        end,
+    }
+
+    use {
+
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "nvim-lua/plenary.nvim", branch = "master" },
+        },
+        build = "make tiktoken",
+        opts = {
+            -- See Configuration section for options
+        },
+
     }
 
 end)
