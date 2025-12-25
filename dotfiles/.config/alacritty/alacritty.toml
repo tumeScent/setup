@@ -1,27 +1,40 @@
 [general]
-# 导入主题
-# import = [ "/home/tumeScent/.config/alacritty/themes/themes/carbonfox.toml" ]
+import = [
+"~/.config/alacritty/alacritty-theme/themes/dracula-soft.toml"
+]
 
- # import = [ "/home/tumeScent/.config/alacritty/themes/themes/catppuccin_mocha.toml" ]
-
-[font]
-size = 16.0
-normal = { family = "FiraCode Nerd Font", style = "Bold" }
-
-bold = { family = "FiraCode Nerd Font", style = "Bold" }
-
-italic = { family = "FiraCode Nerd Font", style = "Bold" }
+[env]
+TERM = "xterm-256color"
 
 [window]
-dimensions = { columns = 107, lines = 32 }
-decorations = "none"
-opacity = 0.90
-blur = true
-padding = { x = 17, y = 17}
+padding.x = 10
+padding.y = 10
+option_as_alt = "Both"
 
-# 快捷键绑定
-[[keyboard.bindings]]
-key = "Return"
-mods = "Control|Shift"
-action = "SpawnNewInstance"
+# dimensions = { columns = 100, lines = 28 }
+dimensions = { columns = 150, lines = 41 }
+position = { x = 0, y = 0 }
 
+decorations = "Buttonless"
+# decorations = "transparent"
+
+# opacit = 0.8
+# blur = true
+
+[colors]
+[colors.primary]
+# foreground = "#000408"
+# background = "#0c011c"  # purple
+# background = "#0b121a"  # dark blue
+
+[font]
+normal.family = "JetBrainsMono NF"
+# normal.family = "Firacode Nerd Font"
+# normal.style = "Regular"
+offset = { x = 1, y = 2 }
+size = 14
+
+[keyboard]
+bindings = [
+{ key = "N", mods = "Super", action = "CreateNewWindow" },
+]

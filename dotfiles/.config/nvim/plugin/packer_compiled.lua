@@ -80,7 +80,7 @@ _G.packer_plugins = {
     url = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
   },
   ["bufferline.nvim"] = {
-    config = { "\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\22separator_visible\0\15background\0\17tab_selected\0\btab\0\tfill\0\23separator_selected\0\14separator\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0" },
+    config = { "\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\23separator_selected\0\14separator\0\17tab_selected\0\tfill\0\btab\0\15background\0\22separator_visible\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0" },
     loaded = true,
     path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nord.nvim",
-    url = "https://github.com/shaunsingh/nord.nvim"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -160,6 +155,12 @@ _G.packer_plugins = {
     path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rose-pine"] = {
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugin.rose-pine\frequire\0" },
+    loaded = true,
+    path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/shawn/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -174,6 +175,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: rose-pine
+time([[Config for rose-pine]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugin.rose-pine\frequire\0", "config", "rose-pine")
+time([[Config for rose-pine]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+try_loadstring("\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\23separator_selected\0\14separator\0\17tab_selected\0\tfill\0\btab\0\15background\0\22separator_visible\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
+time([[Config for bufferline.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\nV\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\tsize\3\n\14direction\nfloat\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
@@ -182,10 +191,6 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugin.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-try_loadstring("\27LJ\2\n¢\3\0\0\5\0\20\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\18\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\3=\3\19\2B\0\2\1K\0\1\0\15highlights\1\0\1\15highlights\0\22separator_visible\1\0\1\nguibg\tNONE\23separator_selected\1\0\1\nguibg\tNONE\14separator\1\0\1\nguibg\tNONE\17tab_selected\1\0\1\nguibg\tNONE\btab\1\0\1\nguibg\tNONE\15background\1\0\1\nguibg\tNONE\tfill\1\0\a\22separator_visible\0\15background\0\17tab_selected\0\btab\0\tfill\0\23separator_selected\0\14separator\0\1\0\1\nguibg\tNONE\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
-time([[Config for bufferline.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

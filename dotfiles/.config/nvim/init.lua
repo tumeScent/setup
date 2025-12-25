@@ -5,4 +5,4 @@ require("settings")
 
 require("keymaps")
 
-require("themes")
+-- require("themes")

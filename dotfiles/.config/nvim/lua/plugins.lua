@@ -62,8 +62,33 @@ return require("packer").startup(function(use)
     }
 
     -- colorscheme
-    use 'shaunsingh/nord.nvim'
-
+    -- use {
+    --     'shaunsingh/nord.nvim'
+    --     config = function()
+    --         require("plugin.nord")
+    --     end
+    -- }
+    use {
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            require("plugin.rose-pine")
+        end
+    }
+    -- use {
+    --     'cocopon/iceberg.vim',
+    --     config = function()
+    --         require("plugin.iceberg")
+    --     end
+    -- }
+    --
+    -- use {
+    --     "rebelot/kanagawa.nvim",
+    --     config = function()
+    --         require("plugin.kanagawa")
+    --     end
+    -- }
+    --
     -- mason and lsp
     use {
         "williamboman/mason.nvim",
